@@ -25,6 +25,7 @@ erDiagram
     stage_changes {
         uuid id PK
         uuid application_id FK
+        text from_stage
         text to_stage
         timestamptz changed_at
     }
