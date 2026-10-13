@@ -6,7 +6,7 @@ from sqlalchemy import ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, UUIDPrimaryKeyMixin, str_enum
-from app.models.enums import Stage
+from app.models.enums import ApplicationStage
 
 if TYPE_CHECKING:
     from app.models.application import Application
@@ -18,8 +18,10 @@ class StageChange(UUIDPrimaryKeyMixin, Base):
     application_id: Mapped[uuid.UUID] = mapped_column(
         ForeignKey("applications.id", ondelete="CASCADE"), index=True
     )
-    from_stage: Mapped[Stage | None] = mapped_column(str_enum(Stage, "from_stage"))
-    to_stage: Mapped[Stage] = mapped_column(str_enum(Stage, "to_stage"))
+    from_stage: Mapped[ApplicationStage | None] = mapped_column(
+        str_enum(ApplicationStage, "from_stage")
+    )
+    to_stage: Mapped[ApplicationStage] = mapped_column(str_enum(ApplicationStage, "to_stage"))
     changed_at: Mapped[datetime] = mapped_column(server_default=func.now())
 
     application: Mapped["Application"] = relationship(back_populates="stage_changes")
