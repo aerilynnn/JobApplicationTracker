@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start session",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/start-session.sh",
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "End session",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/end-session.sh",
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": true },
+      "problemMatcher": []
+    }
+  ]
+}
