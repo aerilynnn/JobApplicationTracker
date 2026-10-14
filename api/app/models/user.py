@@ -11,8 +11,7 @@ if TYPE_CHECKING:
 class User(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "users"
 
-    email: Mapped[str] = mapped_column(unique=True)
-    password_hash: Mapped[str]
+    cognito_sub: Mapped[str] = mapped_column(unique=True)
 
     applications: Mapped[list["Application"]] = relationship(
         back_populates="user", cascade="all, delete-orphan", passive_deletes=True
