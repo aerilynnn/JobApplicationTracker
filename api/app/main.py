@@ -4,8 +4,10 @@ from fastapi import Depends, FastAPI
 
 from app.auth import get_current_user
 from app.models import User
+from app.routers import applications
 
 app = FastAPI(title="Job Tracker API")
+app.include_router(applications.router)
 
 
 @app.get("/health")

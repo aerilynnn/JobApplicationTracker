@@ -6,7 +6,7 @@ class ApplicationStage(StrEnum):
     APPLIED = "applied"
     INTERVIEWING = "interviewing"
     OFFERED = "offered"
-    ReJECTED = "rejected"
+    REJECTED = "rejected"
 
 
 class ScrapeStatus(StrEnum):
